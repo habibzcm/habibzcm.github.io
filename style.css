@@ -2,7 +2,7 @@
    Main Stylesheet for SEO Basics Website
    ========================================================= */
 
-/* A simple CSS reset and box-sizing */
+/* A simple CSS reset and box sizing */
 * {
     margin: 0;
     padding: 0;
@@ -14,9 +14,11 @@ body {
     /* Safe, readable font stack */
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    background-color: #f4f7f6; /* Neutral gray green background color */
-    color: #333; /* Dark gray text  */
-    
+    background-color: #f4f7f6;
+    /* Neutral gray green background color */
+    color: #333;
+    /* Dark gray text  */
+
     /* Using flexbox on body to place the footer at the bottom of the page */
     display: flex;
     flex-direction: column;
@@ -25,11 +27,14 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #2c3e50; /* Primary dark navy color */
-    color: #ecf0f1; /* Off white text color */
+    background-color: #2c3e50;
+    /* Primary dark navy color */
+    color: #ecf0f1;
+    /* Off white text color */
     text-align: center;
     padding: 2.5rem 1rem;
-    border-bottom: 5px solid #3498db; /* Blue accent border on the bottom */
+    border-bottom: 5px solid #3498db;
+    /* Blue accent border on the bottom */
 }
 
 header h1 {
@@ -41,20 +46,25 @@ header h1 {
 header p {
     font-size: 1.1rem;
     font-style: italic;
-    color: #bdc3c7; /* Lighter gray for the subtitle */
+    color: #bdc3c7;
+    /* Lighter gray for the subtitle */
 }
 
 /* Navigation Bar using Flexbox layout */
 nav {
-    background-color: #34495e; /* Bluish gray */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #34495e;
+    /* Bluish gray */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
-    list-style-type: none; /* Removes the default HTML bullet points */
-    display: flex; /* Flexbox layout makes horizontal styling simple */
+    list-style-type: none;
+    /* Removes the default HTML bullet points */
+    display: flex;
+    /* Flexbox layout makes horizontal styling simple */
     justify-content: center;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens */
     margin: 0;
     padding: 0;
 }
@@ -71,32 +81,42 @@ nav ul li a {
     padding: 1rem 1.5rem;
     font-weight: bold;
     /* CSS transition for smooth hover effects */
-    transition: background-color 0.3s ease, color 0.3s ease; 
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* CSS hover effect on navigation links */
 nav ul li a:hover {
-    background-color: #3498db; /* Shift to highlight blue */
+    background-color: #3498db;
+    /* Shift to highlight blue */
     color: #fff;
 }
 
 /* Main Content Area */
 main {
-    flex: 1; /* Pushes the footer down */
+    flex: 1;
+    /* Pushes the footer down */
     width: 90%;
-    max-width: 900px; /* Restricts the max width */
-    margin: 2rem auto; /* Centers the main block with auto margins */
-    background-color: #ffffff; /* Clean white background for main content */
-    padding: 2.5rem; /* Padding inside the content box */
-    border-radius: 8px; /* Soft borders */
-    border: 1px solid #e0e0e0; /* Border outline */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Soft shadow depth */
+    max-width: 900px;
+    /* Restricts the max width */
+    margin: 2rem auto;
+    /* Centers the main block with auto margins */
+    background-color: #ffffff;
+    /* Clean white background for main content */
+    padding: 2.5rem;
+    /* Padding inside the content box */
+    border-radius: 8px;
+    /* Soft borders */
+    border: 1px solid #e0e0e0;
+    /* Border outline */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    /* Soft shadow depth */
 }
 
 /* HTML Headings within main content */
 main h2 {
     color: #2c3e50;
-    border-bottom: 2px solid #ecf0f1; /* Divider under main headings */
+    border-bottom: 2px solid #ecf0f1;
+    /* Divider under main headings */
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
     margin-top: 1rem;
@@ -119,7 +139,8 @@ main p {
 }
 
 /* Lists within Main Content */
-main ul, main ol {
+main ul,
+main ol {
     margin-bottom: 1.5rem;
     padding-left: 2rem;
 }
@@ -141,45 +162,69 @@ main a:hover {
     color: #2980b9;
 }
 
+/* Image Styling */
+.image-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.img-caption {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+}
 
 /* Section styling for the Concepts page blocks */
 .concept-block {
     background-color: #fcfcfc;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    border-left: 4px solid #3498db; /* Blue accent left bar */
+    border-left: 4px solid #3498db;
+    /* Blue accent left bar */
     border-radius: 0 6px 6px 0;
 }
 
 .concept-block h3 {
-    margin-top: 0; /* Resetting top margin so blocks align neatly */
+    margin-top: 0;
+    /* Resetting top margin so blocks align neatly */
 }
 
 /* Table Styling used in the Techniques page */
 table {
     width: 100%;
-    border-collapse: collapse; /* Merges borders */
+    border-collapse: collapse;
+    /* Merges borders */
     margin: 2rem 0;
     font-size: 0.95rem;
 }
 
 /* Table Cells */
-table th, table td {
-    padding: 12px 15px; /* Internal padding */
+table th,
+table td {
+    padding: 12px 15px;
+    /* Internal padding */
     border: 1px solid #ddd;
     text-align: left;
 }
 
 /* Column Headers */
 table th {
-    background-color: #f2f2f2; /* Subtle gray */
+    background-color: #f2f2f2;
+    /* Subtle gray */
     color: #2c3e50;
     font-weight: bold;
 }
 
 /* Mouse hover effect on table rows */
 table tr:hover {
-    background-color: #f1f7fa; 
+    background-color: #f1f7fa;
 }
 
 /* Consistent Footer Styling across all pages */
@@ -189,9 +234,10 @@ footer {
     text-align: center;
     padding: 1.5rem 1rem;
     /* Margin top keeps footer distanced, auto pushes it down in flex context */
-    margin-top: auto; 
+    margin-top: auto;
     font-size: 0.95rem;
-    border-top: 4px solid #34495e; /* Top border */
+    border-top: 4px solid #34495e;
+    /* Top border */
 }
 
 footer p {
@@ -206,4 +252,176 @@ footer a {
 footer a:hover {
     color: #fff;
     text-decoration: underline;
+}
+
+/* =========================================================
+   Quiz Form Styles
+   ========================================================= */
+
+#quiz-section {
+    max-width: 800px;
+    margin: auto;
+}
+
+.question-container {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.question-container p {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.question-container label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.question-container input[type="text"] {
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 150px;
+}
+
+.question-container input[type="radio"],
+.question-container input[type="checkbox"] {
+    margin-right: 0.5rem;
+    transform: scale(1.1);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.primary-btn {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: #2980b9;
+}
+
+.primary-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.secondary-btn {
+    background-color: #ecf0f1;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.secondary-btn:hover {
+    background-color: #bdc3c7;
+}
+
+/* Feedback & Results Styles */
+.feedback {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.correct-text {
+    color: #27ae60;
+}
+
+.incorrect-text {
+    color: #c0392b;
+}
+
+.correct-bg {
+    background-color: #e8f8f5;
+    border: 2px solid #27ae60;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.incorrect-bg {
+    background-color: #fdedec;
+    border: 2px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+#quiz-results h3 {
+    margin-top: 0;
+}
+
+.large-result {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 1. ELEMENT SELECTOR  */
+footer p {
+    font-size: 0.9em;
+}
+
+/* 2. CLASS SELECTOR + CSS GRID LAYOUT */
+.basics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.basics-grid li {
+    background-color: #fcfcfc;
+    padding: 1.5rem;
+    border-top: 5px solid #3498db;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 0;
+    /* Let grid gap handle spacing */
+    height: 100%;
+    /* Stretch to fill row smoothly */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.basics-grid li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. ID SELECTOR */
+#why-seo {
+    background-color: #f4fdfa;
+    /* Soft mint highlight */
+    border-left: 5px solid #2ecc71;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }

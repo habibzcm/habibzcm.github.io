@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character encoding and viewport scaling -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Fundamentals - Quiz</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>SEO Fundamentals</h1>
+        <p>An Introduction to Search Engine Optimization</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="basics.html">SEO Basics</a></li>
+            <li><a href="techniques.html">Techniques</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="quiz-section">
+            <h2>Self-Assessment Quiz</h2>
+            <p>Test your knowledge on the basics of SEO. Good luck!</p>
+
+            <form id="seo-quiz">
+                <!-- Question 1: Fill-in-the-blank -->
+                <div class="question-container">
+                    <p><strong>1.</strong> SEO is an acronym that stands for <span class="blank-space">Search Engine
+                        </span>
+                        <input type="text" id="q1" name="q1" placeholder="Type here" required> .
+                    </p>
+                    <div id="q1-feedback" class="feedback"></div>
+                </div>
+
+                <!-- Question 2: Multiple Choice -->
+                <div class="question-container">
+                    <p><strong>2.</strong> Which of the following represents visitors from unpaid search results?</p>
+                    <label><input type="radio" name="q2" value="direct" required> Direct Traffic</label><br>
+                    <label><input type="radio" name="q2" value="organic"> Organic Traffic</label><br>
+                    <label><input type="radio" name="q2" value="paid"> Paid Traffic</label><br>
+                    <label><input type="radio" name="q2" value="referral"> Referral Traffic</label><br>
+                    <div id="q2-feedback" class="feedback"></div>
+                </div>
+
+                <!-- Question 3: Multiple Choice -->
+                <div class="question-container">
+                    <p><strong>3.</strong> What does "On-Page SEO" primarily focus on?</p>
+                    <label><input type="radio" name="q3" value="links" required> Getting links from other
+                        sites</label><br>
+                    <label><input type="radio" name="q3" value="server"> Server configuration and site speed</label><br>
+                    <label><input type="radio" name="q3" value="content"> Optimizing individual web pages for content
+                        and HTML source code</label><br>
+                    <label><input type="radio" name="q3" value="social"> Building a social media following</label><br>
+                    <div id="q3-feedback" class="feedback"></div>
+                </div>
+
+                <!-- Question 4: Multiple Choice -->
+                <div class="question-container">
+                    <p><strong>4.</strong> What are "Keywords" in the context of SEO?</p>
+                    <label><input type="radio" name="q4" value="passwords" required> Passwords used to log into search
+                        engines</label><br>
+                    <label><input type="radio" name="q4" value="terms"> Words or phrases that users enter into search
+                        engines</label><br>
+                    <label><input type="radio" name="q4" value="code"> Hidden code that forces Google to rank you
+                        #1</label><br>
+                    <label><input type="radio" name="q4" value="links"> Backlinks from Wikipedia</label><br>
+                    <div id="q4-feedback" class="feedback"></div>
+                </div>
+
+                <!-- Question 5: Multi-selection -->
+                <div class="question-container">
+                    <p><strong>5.</strong> Which of the following are considered important ranking factors for SEO?
+                        (Select all that apply)</p>
+                    <label><input type="checkbox" name="q5" value="quality"> High-quality, relevant content</label><br>
+                    <label><input type="checkbox" name="q5" value="color"> The background color of the
+                        website</label><br>
+                    <label><input type="checkbox" name="q5" value="mobile"> Mobile-friendliness</label><br>
+                    <label><input type="checkbox" name="q5" value="backlinks"> Quality backlinks from other
+                        websites</label><br>
+                    <div id="q5-feedback" class="feedback"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn" class="btn primary-btn">Submit Quiz</button>
+                    <button type="button" id="reset-btn" class="btn secondary-btn">Retake Quiz</button>
+                </div>
+            </form>
+
+            <!-- Results Section -->
+            <div id="quiz-results" class="hidden">
+                <h3>Quiz Results</h3>
+                <p id="overall-score"></p>
+                <p id="overall-result" class="large-result"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT3203</a>.</p>
+        <p>&copy; 2026 Student Project</p>
+    </footer>
+
+    <!-- JavaScript for Quiz Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('seo-quiz');
+            const submitBtn = document.getElementById('submit-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const resultsDiv = document.getElementById('quiz-results');
+            const overallScore = document.getElementById('overall-score');
+            const overallResult = document.getElementById('overall-result');
+
+            // Answers
+            const answers = {
+                q1: ['optimization'],
+                q2: 'organic',
+                q3: 'content',
+                q4: 'terms',
+                q5: ['quality', 'mobile', 'backlinks'] // 3 correct choices
+            };
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent page reload
+
+                let score = 0;
+                const totalQuestions = 5;
+
+                // Reset feedbacks
+                document.querySelectorAll('.feedback').forEach(el => {
+                    el.innerHTML = '';
+                    el.className = 'feedback';
+                });
+
+                // Clear styling for inputs
+                document.querySelectorAll('.question-container').forEach(el => el.classList.remove('correct-bg', 'incorrect-bg'));
+
+                // --- Grade Q1 ---
+                const q1Input = document.getElementById('q1').value.trim().toLowerCase();
+                const q1Feedback = document.getElementById('q1-feedback');
+                let q1Correct = false;
+                if (answers.q1.includes(q1Input)) {
+                    score++;
+                    q1Correct = true;
+                    q1Feedback.innerHTML = `<span class="correct-text">Correct! Search Engine <b>Optimization</b>. Score: 1/1</span>`;
+                } else {
+                    q1Feedback.innerHTML = `<span class="incorrect-text">Incorrect. Answer: Optimization. Score: 0/1</span>`;
+                }
+
+                // --- Grade Q2 ---
+                const q2Value = document.querySelector('input[name="q2"]:checked').value;
+                const q2Feedback = document.getElementById('q2-feedback');
+                if (q2Value === answers.q2) {
+                    score++;
+                    q2Feedback.innerHTML = `<span class="correct-text">Correct! Organic Traffic is unpaid. Score: 1/1</span>`;
+                } else {
+                    q2Feedback.innerHTML = `<span class="incorrect-text">Incorrect. Answer: Organic Traffic. Score: 0/1</span>`;
+                }
+
+                // --- Grade Q3 ---
+                const q3Value = document.querySelector('input[name="q3"]:checked').value;
+                const q3Feedback = document.getElementById('q3-feedback');
+                if (q3Value === answers.q3) {
+                    score++;
+                    q3Feedback.innerHTML = `<span class="correct-text">Correct! On-page SEO deals with your page's content/HTML. Score: 1/1</span>`;
+                } else {
+                    q3Feedback.innerHTML = `<span class="incorrect-text">Incorrect. Answer: Optimizing individual web pages for content and HTML source code. Score: 0/1</span>`;
+                }
+
+                // --- Grade Q4 ---
+                const q4Value = document.querySelector('input[name="q4"]:checked').value;
+                const q4Feedback = document.getElementById('q4-feedback');
+                if (q4Value === answers.q4) {
+                    score++;
+                    q4Feedback.innerHTML = `<span class="correct-text">Correct! Score: 1/1</span>`;
+                } else {
+                    q4Feedback.innerHTML = `<span class="incorrect-text">Incorrect. Answer: Words or phrases that users enter into search engines. Score: 0/1</span>`;
+                }
+
+                // --- Grade Q5 ---
+                const q5Checked = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(el => el.value);
+                const q5Feedback = document.getElementById('q5-feedback');
+
+                // Compare arrays (sizes and all elements must match)
+                const isQ5Correct = q5Checked.length === answers.q5.length && answers.q5.every(val => q5Checked.includes(val));
+
+                if (isQ5Correct) {
+                    score++;
+                    q5Feedback.innerHTML = `<span class="correct-text">Correct! High-quality content, mobile-friendliness, and backlinks are key ranking factors. Score: 1/1</span>`;
+                } else {
+                    q5Feedback.innerHTML = `<span class="incorrect-text">Incorrect. Answer: High-quality, relevant content, Mobile-friendliness, AND Quality backlinks. Score: 0/1</span>`;
+                }
+
+                // Show Results
+                resultsDiv.classList.remove('hidden');
+                overallScore.innerHTML = `<strong>Total Score: ${score} / ${totalQuestions}</strong>`;
+
+                // Calculate pass / fail (3/5 or 60% to pass)
+                if (score >= 3) {
+                    overallResult.innerHTML = `<span class="correct-text">Result: PASS! Great job!</span>`;
+                    resultsDiv.className = 'correct-bg';
+                } else {
+                    overallResult.innerHTML = `<span class="incorrect-text">Result: FAIL. Please review the material and try again.</span>`;
+                    resultsDiv.className = 'incorrect-bg';
+                }
+
+                // Disable submit button until reset
+                submitBtn.disabled = true;
+
+                // Scroll down to results
+                resultsDiv.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Reset Logic
+            resetBtn.addEventListener('click', function () {
+                form.reset();
+                resultsDiv.classList.add('hidden');
+                submitBtn.disabled = false;
+
+                // Clear feedbacks
+                document.querySelectorAll('.feedback').forEach(el => {
+                    el.innerHTML = '';
+                    el.className = 'feedback';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
