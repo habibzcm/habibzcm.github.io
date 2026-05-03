@@ -425,3 +425,73 @@ footer p {
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
+
+/* =========================================================
+   Responsive Design Media Queries
+   ========================================================= */
+
+/* Tablet and smaller screens (up to 768px) */
+@media screen and (max-width: 768px) {
+    /* Header adjustments */
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    /* Navigation: stack items vertically */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li a {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Main content: reduce padding and width */
+    main {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    /* Table: make scrollable if needed */
+    table {
+        font-size: 0.9rem;
+    }
+
+    /* Quiz form adjustments */
+    .question-container input[type="text"] {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    /* Basics grid: adjust for smaller screens */
+    .basics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Large desktop screens (above 1200px) */
+@media screen and (min-width: 1200px) {
+    main {
+        max-width: 1000px;
+    }
+
+    .basics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
