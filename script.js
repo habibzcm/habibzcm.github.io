@@ -1,6 +1,30 @@
-// JavaScript for Quiz Logic
+// JavaScript for Quiz Logic and mobile navigation toggling
 document.addEventListener('DOMContentLoaded', function () {
+    const nav = document.querySelector('nav');
+    const navToggle = document.querySelector('.nav-toggle');
+
+    if (navToggle && nav) {
+        navToggle.addEventListener('click', function () {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('open');
+        });
+
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function () {
+                if (nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    }
+
     const form = document.getElementById('seo-quiz');
+    if (!form) {
+        return;
+    }
+
     const submitBtn = document.getElementById('submit-btn');
     const resetBtn = document.getElementById('reset-btn');
     const resultsDiv = document.getElementById('quiz-results');
@@ -34,10 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // --- Grade Q1 ---
         const q1Input = document.getElementById('q1').value.trim().toLowerCase();
         const q1Feedback = document.getElementById('q1-feedback');
-        let q1Correct = false;
         if (answers.q1.includes(q1Input)) {
             score++;
-            q1Correct = true;
             q1Feedback.innerHTML = `<span class="correct-text">Correct! Search Engine <b>Optimization</b>. Score: 1/1</span>`;
         } else {
             q1Feedback.innerHTML = `<span class="incorrect-text">Incorrect. Answer: Optimization. Score: 0/1</span>`;
@@ -77,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const q5Checked = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(el => el.value);
         const q5Feedback = document.getElementById('q5-feedback');
 
-        // Compare arrays (sizes and all elements must match)
+        // Compare arrays - check if all correct answers are selected 
         const isQ5Correct = q5Checked.length === answers.q5.length && answers.q5.every(val => q5Checked.includes(val));
 
         if (isQ5Correct) {

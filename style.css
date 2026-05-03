@@ -91,6 +91,55 @@ nav ul li a:hover {
     color: #fff;
 }
 
+/* Mobile menu toggle button */
+.nav-toggle {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 34px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #ecf0f1;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle span + span {
+    margin-top: 6px;
+}
+
+nav {
+    position: relative;
+}
+
+nav.open .nav-toggle span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+nav.open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+nav.open .nav-toggle span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+nav.open ul {
+    display: flex;
+}
+
 /* Main Content Area */
 main {
     flex: 1;
@@ -382,12 +431,7 @@ footer a:hover {
     display: none;
 }
 
-/* 1. ELEMENT SELECTOR  */
-footer p {
-    font-size: 0.9em;
-}
-
-/* 2. CLASS SELECTOR + CSS GRID LAYOUT */
+/* Grid layout for basics page sections */
 .basics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -415,7 +459,7 @@ footer p {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* 3. ID SELECTOR */
+/* Highlight section for why SEO matters */
 #why-seo {
     background-color: #f4fdfa;
     /* Soft mint highlight */
@@ -442,14 +486,25 @@ footer p {
     }
 
     /* Navigation: stack items vertically */
+    .nav-toggle {
+        display: block;
+    }
+
     nav ul {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        display: none;
+        width: 100%;
+    }
+
+    nav.open ul {
+        display: flex;
     }
 
     nav ul li a {
         padding: 0.75rem 1rem;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        text-align: center;
     }
 
     /* Main content: reduce padding and width */
